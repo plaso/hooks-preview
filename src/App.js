@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import Counter from "./components/Counter"
+import InputTitle from "./components/InputTitle"
+import InputTitleClass from "./components/InputTitleClass"
+import CounterClass from "./components/CounterClass"
 import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [showInput, setShowInput] = useState(true)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter />
+      {/* <Counter initialCount={10} /> */}
+
+      <button onClick={() => setShowInput(!showInput)}>ShowInput</button>
+
+      {/* {showInput && (
+        <InputTitleClass />
+      )} */}
+
+      {showInput && (
+        <div>
+          <InputTitle />
+        </div>
+      )}
     </div>
   );
 }
